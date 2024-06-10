@@ -8,10 +8,7 @@ known_face_names = []
 
 def main():
     camera = Camera()
-    recognizer = Recognizer(known_face_encodings, known_face_names)
-
-    input_thread = Thread(target=recognizer.new_face_input)
-    input_thread.start()
+    recognizer = Recognizer()
 
     while True:
         frame = camera.get_frame()
@@ -21,6 +18,7 @@ def main():
         
         frame = recognizer.recognize_faces(frame)
         cv2.imshow('Webcam feed', frame)
+        
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
             
