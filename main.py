@@ -9,7 +9,9 @@ known_face_names = []
 def main():
     camera = Camera()
     recognizer = Recognizer()
-
+    input_thread = Thread(target=recognizer.handle_new_face, daemon=True)
+    input_thread.start()
+    
     while True:
         frame = camera.get_frame()
         
