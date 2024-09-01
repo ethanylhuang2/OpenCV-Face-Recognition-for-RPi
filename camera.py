@@ -2,7 +2,7 @@ import cv2
 
 class Camera:
     def __init__(self):
-        self.cap = cv2.VideoCapture(0)  # 0 is typically the default camera
+        self.cap = cv2.VideoCapture(1)  # 0 is typically the default camera
         
         if not self.cap.isOpened():
             print("Error: Could not open video capture device.")
